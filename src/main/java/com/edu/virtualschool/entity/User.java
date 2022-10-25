@@ -5,19 +5,17 @@ import java.util.Date;
 public class User {
     public int id;
     public String username;
-    public String nickname;
     public String password;
     public String email;
     public Date createTime;
     public int type;
-
+    private int activationCode;
     public User() {
     }
 
-    public User(int id, String username, String nickname, String password, String email, Date createTime, int type) {
+    public User(int id, String username, String password, String email, Date createTime, int type, String activationCode) {
         this.id = id;
         this.username = username;
-        this.nickname = nickname;
         this.password = password;
         this.email = email;
         this.createTime = createTime;
@@ -29,7 +27,6 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", nickname='" + nickname + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", createTime=" + createTime +
@@ -53,13 +50,6 @@ public class User {
         this.username = username;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
 
     public String getPassword() {
         return password;
@@ -91,5 +81,13 @@ public class User {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public int getActivationCode() {
+        return activationCode;
+    }
+
+    public void setActivationCode(int activationCode) {
+        this.activationCode = activationCode;
     }
 }
