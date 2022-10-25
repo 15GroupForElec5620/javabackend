@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="https://static.nowcoder.com/images/logo_87_87.png"/>
+    <title>virtual-school</title>
+</head>
+<body>
+	<div>
+		<p>
+			<b th:text="${email}">xxx@xxx.com</b>, hello!
+		</p>
+		<p>
+			click this email to activate your account
+			<a th:href="${url}">link</a>
+			welcome to out family!
+		</p>
+	</div>
+</body>
+</html>
