@@ -6,12 +6,10 @@ import org.springframework.stereotype.Component;
 /**
  * @Auther: Junyu Liang
  * @Date: 2022/9/18 - 09 - 18 - 17:03
- * @Description(package): com.newcoder.community.util
  * version: 1.0
  */
 
 /**
- * 持有用户信息， 代替session对象
  */
 @Component
 public class HostHolder {

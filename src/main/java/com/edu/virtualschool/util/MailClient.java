@@ -33,7 +33,7 @@ public class MailClient {
             mimeMessageHelper.setText(content, true);
             javaMailSender.send(mimeMessageHelper.getMimeMessage());
         } catch (MessagingException e) {
-            logger.error("发送邮件失败" + e.getMessage());
+            logger.error("email incorrect" + e.getMessage());
             e.printStackTrace();
         }
     }

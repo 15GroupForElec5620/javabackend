@@ -1,26 +1,40 @@
 package com.edu.virtualschool.entity;
 
-import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
+import java.util.Date;
+@Document(indexName = "user")
 public class User {
+    @Id
     public int id;
+    @Field(type = FieldType.Text)
     public String username;
+
     public String password;
+
     public String email;
+
     public Date createTime;
+
     public int type;
     private int activationCode;
     public User() {
     }
 
-    public User(int id, String username, String password, String email, Date createTime, int type, String activationCode) {
+    public User(int id, String username, String password, String email, Date createTime, int type, int activationCode) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.createTime = createTime;
         this.type = type;
+        this.activationCode = activationCode;
     }
+
+
 
     @Override
     public String toString() {

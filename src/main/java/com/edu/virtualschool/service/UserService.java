@@ -1,6 +1,7 @@
 package com.edu.virtualschool.service;
 
 import com.edu.virtualschool.dao.UserMapper;
+import com.edu.virtualschool.dao.elasticsearch.UserRepository;
 import com.edu.virtualschool.entity.User;
 import com.edu.virtualschool.util.CommunityUtil;
 import com.edu.virtualschool.util.MailClient;
@@ -33,6 +34,7 @@ public class UserService {
     @Value("${server.servlet.context-path}")
     private String contextPath;
 
+
     public User findUserById(int id){
         return userMapper.selectById(id);
     }
@@ -45,9 +47,8 @@ public class UserService {
         }
 
         user.setPassword(CommunityUtil.md5(user.getPassword()));
-        user.setType(0);
+        user.setType(1);
         user.setCreateTime(new Date());
-        user.setUsername(new Date() + "virtual_school");
         userMapper.insertUser(user);
 
 

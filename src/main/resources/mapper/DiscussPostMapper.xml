@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.virtualschool.dao.DiscussPostMapper">
+
+
+    <insert id="insertDiscussPost" keyProperty="id">
+        insert into discusspost (username,title, content,create_time)
+        values(#{username}, #{title}, #{content},#{createTime})
+    </insert>
+    <select id="selectDiscussPost" resultType="discussPost">
+        select * from discusspost
+    </select>
+</mapper>

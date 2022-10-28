@@ -1,5 +1,7 @@
 package com.edu.virtualschool;
 
+import com.edu.virtualschool.dao.AnnouncementMapper;
+import com.edu.virtualschool.entity.Announcement;
 import com.edu.virtualschool.util.MailClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -39,5 +42,13 @@ public class MailTests {
         System.out.println(content);
         mailClient.sendMail("n10889671@qut.edu.au", "Test1", content);
     }
-
+    @Autowired
+    AnnouncementMapper announcementMapper;
+    @Test
+    public void t(){
+        Announcement announcement = new Announcement();
+        announcement.title = "2";
+        announcement.createTime = new Date();
+        announcementMapper.insertAnnouncement(announcement);
+    }
 }

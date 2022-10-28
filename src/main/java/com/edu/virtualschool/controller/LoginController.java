@@ -2,7 +2,9 @@
 package com.edu.virtualschool.controller;
 import com.edu.virtualschool.entity.User;
 
+import com.edu.virtualschool.service.SearchService;
 import com.edu.virtualschool.service.UserService;
+import com.edu.virtualschool.util.HostHolder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +27,13 @@ public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private SearchService searchService;
+    @Autowired
+    private HostHolder hostHolder;
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin(origins = "*")
     public String register(@RequestBody  User user){
         return  userService.register(user);
     }
@@ -41,7 +47,10 @@ public class LoginController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     @ResponseBody
+    @CrossOrigin(origins = "*")
     public Map<String, Object> login(@RequestBody  User user){
+        searchService.insertUser(user.getId());
+        hostHolder.setUser(user);
         return userService.login(user.getEmail(), user.getPassword());
     }
 

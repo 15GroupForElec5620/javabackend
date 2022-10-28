@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.virtualschool.dao.FileMapper">
+
+    <insert id="uploadFile" >
+        insert into file(id,user_id,url,content_type)
+        values (null, #{userId},#{url}, #{contentType})
+    </insert>
+    <select id="searchFile" resultType="string">
+        select url from file
+    </select>
+</mapper>
