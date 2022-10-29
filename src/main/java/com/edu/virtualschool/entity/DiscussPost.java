@@ -13,12 +13,26 @@ public class DiscussPost {
     private String content;
     private Date createTime;
 
+    public DiscussPost() {
+    }
+
     public DiscussPost(int id, String username, String title, String content, Date createTime) {
         this.id = id;
         this.username = username;
         this.title = title;
         this.content = content;
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "DiscussPost{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", createTime=" + createTime +
+                '}';
     }
 
     public Date getCreateTime() {

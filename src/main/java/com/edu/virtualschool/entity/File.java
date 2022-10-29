@@ -9,15 +9,36 @@ import org.springframework.web.multipart.MultipartFile;
 public class File {
     private int id;
     private int usrId;
-    private String url;
+    private String url1;
     public String contentType;
+    public String fileName;
+    public File() {
+    }
 
-
-    public File(int id, int usrId, String url, String contentType) {
+    public File(int id, int usrId, String url1, String contentType, String fileName) {
         this.id = id;
         this.usrId = usrId;
-        this.url = url;
+        this.url1 = url1;
         this.contentType = contentType;
+        this.fileName = fileName;
+    }
+
+    @Override
+    public String toString() {
+        return "File{" +
+                "id=" + id +
+                ", usrId=" + usrId +
+                ", url1='" + url1 + '\'' +
+                ", contentType='" + contentType + '\'' +
+                '}';
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     public String getContentType() {
@@ -44,12 +65,12 @@ public class File {
         this.usrId = usrId;
     }
 
-    public String getUrl() {
-        return url;
+    public String getUrl1() {
+        return url1;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrl1(String url1) {
+        this.url1 = url1;
     }
 
 }

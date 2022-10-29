@@ -9,6 +9,18 @@ public class Lecture {
     private String title;
     private String zoomLink;
 
+    public Lecture() {
+    }
+
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", zoomLink='" + zoomLink + '\'' +
+                '}';
+    }
+
     public Lecture(int id, String title, String zoomLink) {
         this.id = id;
         this.title = title;

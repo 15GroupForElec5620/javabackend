@@ -32,6 +32,7 @@ public class DiscussPostController {
     @RequestMapping(path = "/addDiscussPost", method = RequestMethod.POST)
     @ResponseBody
     public String addDiscussPost(@RequestBody DiscussPost discussPost){
+        System.out.println(discussPost);
         discussPost.setCreateTime(new Date());
         kafkaProducer.addDiscussPost(JSONObject.toJSONString(discussPost));
         return "success";

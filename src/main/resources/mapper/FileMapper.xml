@@ -5,10 +5,10 @@
 <mapper namespace="com.edu.virtualschool.dao.FileMapper">
 
     <insert id="uploadFile" >
-        insert into file(id,user_id,url,content_type)
-        values (null, #{userId},#{url}, #{contentType})
+        insert into file(id,user_id,url,content_type, file_name)
+        values (null, #{userId},#{url1}, #{contentType}, #{fileName})
     </insert>
-    <select id="searchFile" resultType="string">
-        select url from file
+    <select id="searchFile" resultType="com.edu.virtualschool.entity.File">
+        select *  from file
     </select>
 </mapper>

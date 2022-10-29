@@ -69,8 +69,10 @@ public class UserService {
         Map<String, Object> map = new HashMap<>();
         //account
         User user = userMapper.selectByEmail(email);
+
         if(user == null){
             map.put("errcode", "email is not correct");
+
             return map;
         }
         if(user.getActivationCode() == 0){

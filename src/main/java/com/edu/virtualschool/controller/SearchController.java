@@ -23,7 +23,7 @@ public class SearchController {
     private SearchService searchService;
     @Autowired
     private LectureRepository lectureRepository;
-    @RequestMapping(path = "/search", method = RequestMethod.GET)
+    @RequestMapping(path = "/searchUsername", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> search(String username){
         System.out.println("11111111111111111111111");
@@ -33,6 +33,7 @@ public class SearchController {
     @RequestMapping(path = "/searchLectureByTitle", method = RequestMethod.GET)
     @ResponseBody
     public List<Lecture> searchLecture(String title){
+        System.out.println(title);
         return lectureRepository.findByTitle(title);
     }
 }

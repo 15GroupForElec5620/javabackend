@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edu.virtualschool.dao.GroupMapper">
+    <insert id="insertGroup">
+        update user
+        set group_id = #{groupId}
+        where id = #{id}
+    </insert>
+    <update id="exitGroup">
+        update user
+        set group_id = null
+        where id = #{id}
+    </update>
+
+
+    <select id="searchGroup" resultType="int">
+        select count(*) from user
+        where group_id = #{id}
+    </select>
+    <select id="searchIfExits" resultType="java.lang.Integer">
+        select group_id
+        from user
+        where id = #{id}
+    </select>
+    <select id="selectUsersById" resultType="com.edu.virtualschool.entity.User">
+        select * from user
+        where group_id = #{groupId}
+    </select>
+</mapper>

@@ -15,10 +15,10 @@ import java.util.List;
 public class FileService {
     @Autowired
     private FileMapper fileMapper;
-    public int uploadFile(int userId, String url, String contentType){
-        return fileMapper.uploadFile(userId, url, contentType);
+    public int uploadFile(int userId, String url, String contentType, String fileName){
+        return fileMapper.uploadFile(userId, url, contentType, fileName);
     }
-    public List<String> search(){
+    public List<File> search(){
         return fileMapper.searchFile();
     }
 }

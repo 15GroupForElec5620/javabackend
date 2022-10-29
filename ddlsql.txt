@@ -1,0 +1,120 @@
+create table announcement
+(
+    id          mediumint unsigned auto_increment comment '公告id：'
+        primary key,
+    title       varchar(125) default ''                not null comment '标题：',
+    content     longtext                               null comment '正文：',
+    create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间：'
+)
+    comment '公告：' engine = MyISAM
+                    charset = utf8;
+
+create table comment
+(
+    comment_id   int unsigned auto_increment comment '评论ID：'
+        primary key,
+    user_id      int unsigned default '0'               not null comment '评论人ID：',
+    reply_to_id  int unsigned default '0'               not null comment '回复评论ID：空为0',
+    content      longtext                               null comment '内容：',
+    nickname     varchar(255)                           null comment '昵称：',
+    avatar       varchar(255)                           null comment '头像地址：[0,255]',
+    create_time  timestamp    default CURRENT_TIMESTAMP not null comment '创建时间：',
+    update_time  timestamp    default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间：',
+    source_table varchar(255)                           null comment '来源表：',
+    source_field varchar(255)                           null comment '来源字段：',
+    source_id    int unsigned default '0'               not null comment '来源ID：'
+)
+    comment '评论：' engine = MyISAM
+                    charset = utf8;
+
+create table discusspost
+(
+    id          int          not null
+        primary key,
+    username    varchar(255) null,
+    title       varchar(255) null,
+    content     varchar(255) null,
+    create_time date         not null
+);
+
+create table file
+(
+    id           int auto_increment
+        primary key,
+    url1         varchar(255) null,
+    user_id      int          null,
+    content_type varchar(255) null,
+    file_name    varchar(255) null
+);
+
+create table lecture
+(
+    id        int          not null
+        primary key,
+    title     varchar(255) null,
+    zoom_link varchar(255) null
+);
+
+create table message
+(
+    id              int auto_increment
+        primary key,
+    from_id         int         null,
+    to_id           int         null,
+    conversation_id varchar(45) not null,
+    content         text        null,
+    status          int         null,
+    create_time     timestamp   null
+);
+
+create table score
+(
+    score_id      int unsigned auto_increment comment '轮播图ID：'
+        primary key,
+    assignment_id varchar(64)                         null comment '标题：',
+    content       varchar(255)                        null comment '内容：',
+    Mark          float                               null,
+    create_time   timestamp default CURRENT_TIMESTAMP not null comment '创建时间：',
+    update_time   timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间：'
+)
+    comment '轮播图：' engine = MyISAM
+                      charset = utf8;
+
+create table upload
+(
+    upload_id int auto_increment comment '上传ID'
+        primary key,
+    name      varchar(64)   null comment '文件名',
+    path      varchar(255)  null comment '访问路径',
+    file      varchar(255)  null comment '文件路径',
+    display   varchar(255)  null comment '显示顺序',
+    father_id int default 0 null comment '父级ID',
+    dir       varchar(255)  null comment '文件夹',
+    type      varchar(32)   null comment '文件类型'
+)
+    engine = MyISAM
+    charset = utf8;
+
+create table user
+(
+    id              mediumint unsigned auto_increment comment '用户ID：[0,8388607]用户获取其他与用户相关的数据'
+        primary key,
+    username        varchar(16) default '' not null comment '用户名：[0,16]用户登录时所用的账户名称',
+    password        varchar(64) default '' not null comment '密码：[0,32]用户登录所需的密码，由6-16位数字或英文组成',
+    email           varchar(64) default '' null comment '邮箱：[0,64]用户的邮箱，用于找回密码时或登录时',
+    create_time     date                   not null comment '创建时间：',
+    type            int                    null,
+    activation_code int         default 0  null,
+    group_id        int                    null
+)
+    comment 'User account: Used to save user login information' engine = MyISAM
+                                                                charset = utf8;
+
+create table user_group
+(
+    group_id mediumint unsigned auto_increment comment '用户组ID：[0,8388607]'
+        primary key
+)
+    comment '用户组：用于用户前端身份和鉴权' engine = MyISAM
+                                            charset = utf8;
+

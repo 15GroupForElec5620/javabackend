@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.virtualschool.dao.LectureMapper">
-    <insert id="insertLecture">
+    <insert id="insertLecture" keyProperty="id">
         insert into lecture(title,zoom_link)
         values(#{title},#{zoomLink})
     </insert>

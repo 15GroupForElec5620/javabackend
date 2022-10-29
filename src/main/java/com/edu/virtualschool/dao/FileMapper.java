@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface FileMapper {
 
-    int uploadFile(int userId, String url, String contentType);
+    int uploadFile(int userId, String url, String contentType, String fileName);
 
-    List<String> searchFile();
+    List<File> searchFile();
 }
