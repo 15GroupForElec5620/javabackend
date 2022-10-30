@@ -57,7 +57,7 @@ public class FileController {
         }
 
         String originalFilename = file.getOriginalFilename();
-        System.out.println(originalFilename);
+        System.out.println(originalFilename + "2222222222222222222222");
         String suffix = originalFilename.substring(originalFilename.lastIndexOf("."));
         if(suffix == null || " ".equals(suffix) ){
             System.out.println("formate error");

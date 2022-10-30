@@ -2,7 +2,9 @@ package com.edu.virtualschool;
 
 import com.edu.virtualschool.dao.UserMapper;
 import com.edu.virtualschool.dao.elasticsearch.UserRepository;
+import com.edu.virtualschool.entity.Assignment;
 import com.edu.virtualschool.entity.User;
+import com.edu.virtualschool.service.AssignmentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,5 +41,11 @@ public class ElasticsearchTest {
         for(User u : s){
             System.out.println(u);
         }
+    }
+    @Autowired
+    AssignmentService assignmentService;
+    @Test
+    public void test3(){
+        assignmentService.addAssignment(new Assignment(1, "1", "1"));
     }
 }

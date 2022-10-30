@@ -21,10 +21,12 @@ public class User {
 
     public int type;
     private int activationCode;
+
+    private int group_id;
     public User() {
     }
 
-    public User(int id, String username, String password, String email, Date createTime, int type, int activationCode) {
+    public User(int id, String username, String password, String email, Date createTime, int type, int activationCode, int group_id) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -32,9 +34,8 @@ public class User {
         this.createTime = createTime;
         this.type = type;
         this.activationCode = activationCode;
+        this.group_id = group_id;
     }
-
-
 
     @Override
     public String toString() {
@@ -46,6 +47,14 @@ public class User {
                 ", createTime=" + createTime +
                 ", type=" + type +
                 '}';
+    }
+
+    public int getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(int group_id) {
+        this.group_id = group_id;
     }
 
     public int getId() {

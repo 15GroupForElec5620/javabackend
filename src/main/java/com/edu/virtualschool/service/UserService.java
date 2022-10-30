@@ -51,6 +51,7 @@ public class UserService {
         user.setPassword(CommunityUtil.md5(user.getPassword()));
         user.setType(1);
         user.setCreateTime(new Date());
+        user.setGroup_id(0);
         userMapper.insertUser(user);
 
 

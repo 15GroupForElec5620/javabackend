@@ -6,30 +6,28 @@
 
 
     <insert id="addAssignment" keyProperty="id">
-        insert into assignment (title)
-        values (#{title})
+        insert into assignment (title, content)
+        values (#{title}, #{content})
     </insert>
-    <insert id="uploadFile">
-        insert into file(id,user_id,url,content_type, file_name, assignment_id)
-        values (null, #{userId},#{url1}, #{contentType}, #{fileName}, #{assignmentId})
+    <insert id="insertAssignmentAnswer">
+        insert into assignment_answer(answer, id, user_id)
+        values(#{answer}, null , #{userId})
     </insert>
-    <insert id="insertMark">
-        insert into score
-        values (#{userId}, #{score})
-    </insert>
-    <delete id="deleteAssignment">
-        delete from assignment
-        where  id = #{id}
-    </delete>
-    <select id="searchAssignment" resultType="assignment">
+    <update id="markAnswers">
+        update assignment_answer
+        set comment = #{comment}, score = #{score}, user_id = #{userId}
+        where id = #{id}
+    </update>
+    <select id="showAssignment" resultType="assignment">
         select * from assignment
     </select>
-    <select id="selectFile" resultType="com.edu.virtualschool.entity.File">
-        select * from file
-        where assignment_id != null
+    <select id="showAssignmentAnswers" resultType="com.edu.virtualschool.entity.AssignmentAnswer">
+        select * from  assignment_answer
     </select>
-    <select id="selectMark" resultType="com.edu.virtualschool.entity.Score">
-        select score from score
-        where user_id = #{userId} and assignment_id = #{assignmentId}
+    <select id="showAssignmentResult" resultType="assignmentAnswer">
+        select * from assignment_answer
+        where user_id = #{userId}
     </select>
+
+
 </mapper>

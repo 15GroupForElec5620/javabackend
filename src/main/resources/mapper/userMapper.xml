@@ -4,11 +4,11 @@
                 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.edu.virtualschool.dao.UserMapper">
     <sql id="insertFileds">
-        username, password, email, type, create_time, activation_code
+        username, password, email, type, create_time, activation_code, group_id
     </sql>
     <insert id="insertUser" parameterType="user" keyProperty="id">
         insert into user (<include refid="insertFileds"></include>)
-        values (#{username},  #{password},  #{email}, #{type}, #{createTime}, #{activationCode})
+        values (#{username},  #{password},  #{email}, #{type}, #{createTime}, #{activationCode}, #{groupId})
     </insert>
 
 

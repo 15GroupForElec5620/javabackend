@@ -1,11 +1,10 @@
 package com.edu.virtualschool.dao;
 
 import com.edu.virtualschool.entity.Assignment;
-import com.edu.virtualschool.entity.File;
-import com.edu.virtualschool.entity.Score;
+import com.edu.virtualschool.entity.AssignmentAnswer;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * @Author: JunyuLiang
@@ -15,16 +14,13 @@ import java.util.List;
 public interface AssignmentMapper {
 
     void addAssignment(Assignment assignment);
+    Assignment showAssignment();
 
-    void deleteAssignment(int id);
+    void insertAssignmentAnswer(AssignmentAnswer assignmentAnswer);
 
-    List<Assignment> searchAssignment();
+    Set<AssignmentAnswer> showAssignmentAnswers();
 
-    int uploadFile(int userId, String url, String contentType, String fileName);
+    void markAnswers(AssignmentAnswer assignmentAnswer);
 
-    List<File> selectFile();
-
-    void insertMark(int userId, float score);
-
-    Score selectMark(int userId, int assignment_id);
+    AssignmentAnswer showAssignmentResult(int userId);
 }
