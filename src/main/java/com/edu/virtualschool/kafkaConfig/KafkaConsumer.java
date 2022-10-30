@@ -1,4 +1,4 @@
-package com.edu.virtualschool.event;
+package com.edu.virtualschool.kafkaConfig;
 
 import com.alibaba.fastjson.JSONObject;
 import com.edu.virtualschool.entity.Announcement;
@@ -9,8 +9,6 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
 
 /**
  * @Author: JunyuLiang

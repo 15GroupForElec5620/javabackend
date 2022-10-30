@@ -1,12 +1,21 @@
 package com.edu.virtualschool.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 /**
  * @Author: JunyuLiang
  * @Date: 2022/10/26 - 10 - 26 -21:11
  */
+@Document(indexName = "lecture")
 public class Lecture {
+    @Id
     private int id;
+    @Field(type = FieldType.Text)
     private String title;
+    @Field(type = FieldType.Text)
     private String zoomLink;
 
     public Lecture() {

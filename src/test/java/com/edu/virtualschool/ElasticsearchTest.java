@@ -29,13 +29,13 @@ public class ElasticsearchTest {
     public void testInsert(){
         userMapper.selectById(9);
         //userRepository.save(userMapper.selectById(9));
-        userRepository.save(userMapper.selectById(1));
-        userRepository.save(userMapper.selectById(2));
-        userRepository.save(userMapper.selectById(3));
+        userRepository.save(userMapper.selectById(15));
+       // userRepository.save(userMapper.selectById(2));
+       // userRepository.save(userMapper.selectById(3));
     }
     @Test
     public void testInsert2(){
-        Set<User> s = userRepository.findByUsername("james");
+        Set<User> s = userRepository.findByUsername("111");
         for(User u : s){
             System.out.println(u);
         }

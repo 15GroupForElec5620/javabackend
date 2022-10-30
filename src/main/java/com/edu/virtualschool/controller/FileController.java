@@ -88,7 +88,7 @@ public class FileController {
         }
         //
         //hostHolder.getUser().getId()
-        fileService.uploadFile(1, uploadPath + File.separator + originalFilename, file.getContentType(), suffix);
+        fileService.uploadFile(1, uploadPath + File.separator + originalFilename, file.getContentType(), file.getOriginalFilename(), 0);
         try {
             file.transferTo(dest);
         } catch (IOException e) {
@@ -139,7 +139,11 @@ public class FileController {
     @RequestMapping(path = "/getFiles", method = RequestMethod.GET)
     @ResponseBody
     public List<com.edu.virtualschool.entity.File> searchFile(){
+        System.out.println(1111);
         List<com.edu.virtualschool.entity.File> list = fileService.search();
+        for(com.edu.virtualschool.entity.File file : list){
+            System.out.println(file);
+        }
         return list;
     }
 }

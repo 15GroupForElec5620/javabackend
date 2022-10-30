@@ -15,6 +15,4 @@ import java.util.Set;
 @Repository
 public interface UserRepository extends ElasticsearchRepository<User, Integer> {
     Set<User> findByUsername(String username);
-
-
 }

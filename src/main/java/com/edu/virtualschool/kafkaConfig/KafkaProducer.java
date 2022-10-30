@@ -1,7 +1,5 @@
-package com.edu.virtualschool.event;
+package com.edu.virtualschool.kafkaConfig;
 
-import com.alibaba.fastjson.JSONObject;
-import com.edu.virtualschool.entity.Announcement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;

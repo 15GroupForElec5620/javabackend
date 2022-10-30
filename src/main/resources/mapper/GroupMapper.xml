@@ -6,11 +6,11 @@
     <insert id="insertGroup">
         update user
         set group_id = #{groupId}
-        where id = #{id}
+        where id = #{userId}
     </insert>
     <update id="exitGroup">
         update user
-        set group_id = null
+        set group_id = 0
         where id = #{id}
     </update>
 
@@ -24,8 +24,8 @@
         from user
         where id = #{id}
     </select>
-    <select id="selectUsersById" resultType="com.edu.virtualschool.entity.User">
-        select * from user
+    <select id="selectUsersById" resultType="int">
+        select count(*) from user
         where group_id = #{groupId}
     </select>
 </mapper>

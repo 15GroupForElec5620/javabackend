@@ -2,14 +2,10 @@ package com.edu.virtualschool;
 
 import com.alibaba.fastjson.JSONObject;
 import com.edu.virtualschool.entity.Announcement;
-import com.edu.virtualschool.event.KafkaProducer;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
+import com.edu.virtualschool.kafkaConfig.KafkaProducer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Date;

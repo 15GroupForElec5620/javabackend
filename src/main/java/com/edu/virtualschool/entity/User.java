@@ -10,7 +10,7 @@ import java.util.Date;
 public class User {
     @Id
     public int id;
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Text, analyzer = "ik_max_word", searchAnalyzer = "ik_smart")
     public String username;
 
     public String password;

@@ -43,8 +43,7 @@ public class SearchService {
         return map;
     }
 
-    public void insertUser(int id){
-        User user = userMapper.selectById(id);
+    public void insertUser(User user){
         if(user != null){
             userRepository.save(user);
         }

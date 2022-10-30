@@ -1,11 +1,8 @@
 package com.edu.virtualschool.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.edu.virtualschool.dao.DiscussPostMapper;
-import com.edu.virtualschool.entity.Announcement;
 import com.edu.virtualschool.entity.DiscussPost;
-import com.edu.virtualschool.event.KafkaConsumer;
-import com.edu.virtualschool.event.KafkaProducer;
+import com.edu.virtualschool.kafkaConfig.KafkaProducer;
 import com.edu.virtualschool.service.DiscusspostService;
 import com.edu.virtualschool.util.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;

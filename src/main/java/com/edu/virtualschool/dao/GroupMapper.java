@@ -20,5 +20,5 @@ public interface GroupMapper {
 
     void exitGroup(int userId);
 
-    List<User> selectUsersById(int groupId);
+    int selectUsersById(int groupId);
 }

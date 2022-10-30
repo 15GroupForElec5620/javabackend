@@ -2,7 +2,7 @@ package com.edu.virtualschool.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.edu.virtualschool.entity.Announcement;
-import com.edu.virtualschool.event.KafkaProducer;
+import com.edu.virtualschool.kafkaConfig.KafkaProducer;
 import com.edu.virtualschool.service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * @Author: JunyuLiang

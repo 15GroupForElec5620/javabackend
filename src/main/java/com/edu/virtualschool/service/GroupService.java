@@ -18,7 +18,7 @@ public class GroupService {
     GroupMapper groupMapper;
 
     public String joinGroup(int userId, int id){
-        if(groupMapper.searchIfExits(id) != null){
+        if(groupMapper.searchIfExits(userId) != 0){
             return "you have already in a group";
         }
         int count = groupMapper.searchGroup(id);
@@ -33,7 +33,7 @@ public class GroupService {
     public void exitGroup(int userId){
         groupMapper.exitGroup(userId);
     }
-    public List<User> selectUsersById(int groupId){
+    public int selectUsersById(int groupId){
         return groupMapper.selectUsersById(groupId);
     }
 }

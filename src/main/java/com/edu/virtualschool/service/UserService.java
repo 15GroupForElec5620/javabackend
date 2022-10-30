@@ -38,7 +38,9 @@ public class UserService {
     public User findUserById(int id){
         return userMapper.selectById(id);
     }
-
+    public User findUserByEmail(String email){
+        return userMapper.selectByEmail(email);
+    }
     public String register(User user){
 
         User u = userMapper.selectByEmail(user.getEmail());

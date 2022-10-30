@@ -49,8 +49,11 @@ public class LoginController {
     @ResponseBody
     @CrossOrigin(origins = "*")
     public Map<String, Object> login(@RequestBody  User user){
-        searchService.insertUser(user.getId());
+        User user1 = userService.findUserByEmail(user.getEmail());
+        System.out.println(user);
+        searchService.insertUser(user1);
         hostHolder.setUser(user);
+        System.out.println(hostHolder.getUser());
         return userService.login(user.getEmail(), user.getPassword());
     }
 
